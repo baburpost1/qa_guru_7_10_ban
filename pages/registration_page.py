@@ -1,10 +1,27 @@
 from selene import browser, be, have, command
+from models.User import User
 import os
+
 
 
 class RegistrationPage():
     def __init__(self):
         self.open()
+
+    def registration_user(self, user: User):
+        self.fill_first_name(user.first_name)
+        self.fill_last_name(user.last_name)
+        self.fill_email(user.email)
+        self.choose_gender()
+        self.fill_user_phonenumber(user.mobile)
+        self.choose_birth_date(user.year, user.month, user.day)
+        self.type_subject(user.subjects)
+        self.choose_hobbie(user.hobbies)
+        self.choose_picture(user.picture)
+        self.type_current_adress(user.address)
+        self.choose_state(user.state)
+        self.is_enabled('[id="react-select-4-input"]')
+        self.choose_city(user.city)
 
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
