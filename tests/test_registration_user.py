@@ -6,7 +6,7 @@ def test_registration_students_form_positive():
     registration_page = RegistrationPage()
     yasha = User(first_name='yasha', last_name='family', email='qwerty@mail.ru', gender=1, mobile="8800555353",
                  year="2000", month="5", day="1",
-                 subjects='Math', hobbies='2', picture='../data/test.png',
+                 subjects='Math', hobbies='2', picture='test.png',
                  address="CUrrent aDDress 12a Here", state="NCR", city="Delhi")
     registration_page.registration_user(yasha)
     registration_page.press_submit()

@@ -1,6 +1,7 @@
 from selene import browser, be, have, command
 from models.User import User
 import os
+from tests.conftest import RESOURCE_PATH
 
 
 
@@ -58,8 +59,8 @@ class RegistrationPage():
     def choose_hobbie(self, value):
         browser.element(f'[for="hobbies-checkbox-{value}"]').click()
 
-    def choose_picture(self, path):
-        browser.element('[id="uploadPicture"]').send_keys(os.path.abspath(path))
+    def choose_picture(self, file_name):
+        browser.element('[id="uploadPicture"]').send_keys(os.path.join(RESOURCE_PATH, file_name))
 
     def type_current_adress(self, value):
         browser.element('[id="currentAddress"]').type(value)
